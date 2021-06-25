@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="APOD_HW2_10" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9b-6K-eDn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWe-2r-h5i">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1009.6666666666666"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apod" translatesAutoresizingMaskIntoConstraints="NO" id="aLs-oN-XNu">
+                                                <rect key="frame" x="20" y="80.000000000000014" width="374" height="245.33333333333337"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Supercell Thunderstorm Over Texas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9F-nU-HaD">
+                                                <rect key="frame" x="20" y="345.33333333333331" width="374" height="61"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Ylb-3G-JAw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="vJZ-Nw-v6j">
+                                                <rect key="frame" x="20" y="20" width="374" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="lET-OF-2SV"/>
+                                                </constraints>
+                                            </datePicker>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmq-rH-p02">
+                                                <rect key="frame" x="20" y="421.33333333333331" width="374" height="568.33333333333348"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="nKJ-PD-Fut"/>
+                                                </constraints>
+                                                <mutableString key="text">Is that a cloud or an alien spaceship?  It's an unusual and sometimes dangerous type of thunderstorm cloud called a supercell. Supercells may spawn damaging tornados, hail, downbursts of air, or drenching rain.  Or they may just look impressive. A supercell harbors a mesocyclone -- a rising column of air surrounded by drafts of falling air.  Supercells could occur over many places on Earth but are particularly common in  Is that a cloud or an alien spaceship?  It's an unusual and sometimes dangerous type of thunderstorm cloud called a supercell. Supercells may spawn damaging tornados, hail, downbursts of air, or drenching rain.  Or they may just look impressive. A supercell harbors a mesocyclone -- a rising column of air surrounded by drafts of falling air.  Supercells could occur over many places on Earth but are particularly common in  Is that a cloud or an alien spaceship?  It's an unusual and sometimes dangerous type of thunderstorm cloud called a supercell. Supercells may spawn damaging tornados, hail, downbursts of air, or drenching rain.  Or they may just look impressive. A supercell harbors a mesocyclone -- a rising column of air surrounded by drafts of falling air.  Supercells could occur over many places on Earth but are particularly common in  </mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="O9F-nU-HaD" secondAttribute="trailing" constant="20" id="2eP-S0-kDH"/>
+                                            <constraint firstAttribute="trailing" secondItem="aLs-oN-XNu" secondAttribute="trailing" constant="20" id="4LT-2D-7Fb"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hmq-rH-p02" secondAttribute="bottom" constant="20" id="7Gi-bA-Ch9"/>
+                                            <constraint firstAttribute="trailing" secondItem="hmq-rH-p02" secondAttribute="trailing" constant="20" id="BMJ-Sf-2OU"/>
+                                            <constraint firstItem="vJZ-Nw-v6j" firstAttribute="leading" secondItem="SWe-2r-h5i" secondAttribute="leading" constant="20" id="LgU-bC-eNc"/>
+                                            <constraint firstItem="aLs-oN-XNu" firstAttribute="leading" secondItem="SWe-2r-h5i" secondAttribute="leading" constant="20" id="NaW-7B-mVh"/>
+                                            <constraint firstAttribute="trailing" secondItem="vJZ-Nw-v6j" secondAttribute="trailing" constant="20" id="Pjs-o2-VJo"/>
+                                            <constraint firstItem="O9F-nU-HaD" firstAttribute="leading" secondItem="SWe-2r-h5i" secondAttribute="leading" constant="20" id="bkK-z0-wSJ"/>
+                                            <constraint firstItem="O9F-nU-HaD" firstAttribute="top" secondItem="aLs-oN-XNu" secondAttribute="bottom" constant="20" id="bqQ-sD-okt"/>
+                                            <constraint firstItem="vJZ-Nw-v6j" firstAttribute="top" secondItem="SWe-2r-h5i" secondAttribute="top" constant="20" id="hal-PC-CV1"/>
+                                            <constraint firstItem="hmq-rH-p02" firstAttribute="top" secondItem="O9F-nU-HaD" secondAttribute="bottom" constant="15" id="s0J-dI-7rz"/>
+                                            <constraint firstItem="aLs-oN-XNu" firstAttribute="top" secondItem="vJZ-Nw-v6j" secondAttribute="bottom" constant="20" id="yOo-nY-mIa"/>
+                                            <constraint firstItem="hmq-rH-p02" firstAttribute="leading" secondItem="SWe-2r-h5i" secondAttribute="leading" constant="20" id="zKi-Z9-UIa"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="SWe-2r-h5i" firstAttribute="height" secondItem="v9b-6K-eDn" secondAttribute="height" priority="250" id="6H0-sM-mGn"/>
+                                    <constraint firstItem="SWe-2r-h5i" firstAttribute="leading" secondItem="v9b-6K-eDn" secondAttribute="leading" id="6MF-y2-dpX"/>
+                                    <constraint firstItem="SWe-2r-h5i" firstAttribute="width" secondItem="v9b-6K-eDn" secondAttribute="width" id="Ooa-f3-gF9"/>
+                                    <constraint firstItem="SWe-2r-h5i" firstAttribute="top" secondItem="v9b-6K-eDn" secondAttribute="top" id="RBM-rZ-HzM"/>
+                                    <constraint firstAttribute="trailing" secondItem="SWe-2r-h5i" secondAttribute="trailing" id="UVs-NZ-QhC"/>
+                                    <constraint firstAttribute="bottom" secondItem="SWe-2r-h5i" secondAttribute="bottom" id="nTQ-mQ-cla"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="v9b-6K-eDn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="FHl-ud-mvv"/>
+                            <constraint firstItem="v9b-6K-eDn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QCz-8o-RTv"/>
+                            <constraint firstItem="aLs-oN-XNu" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.3" id="SwT-uy-gAD"/>
+                            <constraint firstItem="v9b-6K-eDn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pw3-vO-yct"/>
+                            <constraint firstItem="v9b-6K-eDn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yEb-7J-pda"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="apod" width="360" height="168"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
