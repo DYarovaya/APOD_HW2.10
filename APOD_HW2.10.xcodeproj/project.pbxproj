@@ -10,6 +10,7 @@
 		4B8574192685FEC600D9600D /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8574182685FEC600D9600D /* FullImageViewController.swift */; };
 		4B85741C26860E0200D9600D /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85741B26860E0200D9600D /* RequestManager.swift */; };
 		4B85741E268729E400D9600D /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85741D268729E400D9600D /* ResponseData.swift */; };
+		4B85742026873EB900D9600D /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B85741F26873EB900D9600D /* CustomDateFormatter.swift */; };
 		4B949FB72685DF9200532CB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B949FB62685DF9200532CB8 /* AppDelegate.swift */; };
 		4B949FB92685DF9200532CB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B949FB82685DF9200532CB8 /* SceneDelegate.swift */; };
 		4B949FBB2685DF9200532CB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B949FBA2685DF9200532CB8 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		4B8574182685FEC600D9600D /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
 		4B85741B26860E0200D9600D /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		4B85741D268729E400D9600D /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		4B85741F26873EB900D9600D /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		4B949FB32685DF9200532CB8 /* APOD_HW2.10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APOD_HW2.10.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B949FB62685DF9200532CB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B949FB82685DF9200532CB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 			children = (
 				4B85741B26860E0200D9600D /* RequestManager.swift */,
 				4B85741D268729E400D9600D /* ResponseData.swift */,
+				4B85741F26873EB900D9600D /* CustomDateFormatter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				4B85741C26860E0200D9600D /* RequestManager.swift in Sources */,
 				4B949FBB2685DF9200532CB8 /* ViewController.swift in Sources */,
 				4B8574192685FEC600D9600D /* FullImageViewController.swift in Sources */,
+				4B85742026873EB900D9600D /* CustomDateFormatter.swift in Sources */,
 				4B949FB72685DF9200532CB8 /* AppDelegate.swift in Sources */,
 				4B85741E268729E400D9600D /* ResponseData.swift in Sources */,
 				4B949FB92685DF9200532CB8 /* SceneDelegate.swift in Sources */,

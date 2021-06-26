@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, RequestManagerDelegate {
+class ViewController: UIViewController, RequestManagerDelegate, RequestImageManagerDelegate {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
@@ -16,15 +16,26 @@ class ViewController: UIViewController, RequestManagerDelegate {
             imageView.isUserInteractionEnabled = true
         }
     }
+    @IBOutlet weak var calendar: UIDatePicker! {
+        didSet {
+            calendar.maximumDate = date
+        }
+    }
     @IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var labelActivityIndicator: UIActivityIndicatorView!
     var requestManager = RequestManager()
+    let customDateFormatter = CustomDateFormatter()
+    
+    var date = Date()
+    var imageHDUrl: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestManager.delegate = self
-        requestManager.fetchRequest(date: "2021-06-25")
+        requestManager.requestManagerDelegate = self
+        requestManager.requestImageManagerDelegate = self
+        
+        requestManager.fetchRequest(date: customDateFormatter.formatDate(date: date))
         labelActivityIndicator.startAnimating()
         labelActivityIndicator.hidesWhenStopped = true
         imageActivityIndicator.isHidden = true
@@ -37,10 +48,11 @@ class ViewController: UIViewController, RequestManagerDelegate {
     
     func didUpdateData(responseData: ResponseData) {
         DispatchQueue.main.async{
-            print(responseData.title)
             self.titleLabel.text = responseData.title
             self.explanationLabel.text = responseData.explanation
+            self.imageHDUrl = responseData.hdurl
             self.requestManager.fetchImage(url: responseData.url)
+            
             
             self.labelActivityIndicator.stopAnimating()
             
@@ -58,5 +70,18 @@ class ViewController: UIViewController, RequestManagerDelegate {
                 }
             }
     }
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        requestManager.fetchRequest(date: customDateFormatter.formatDate(date: sender.date))
+        labelActivityIndicator.startAnimating()
+        labelActivityIndicator.hidesWhenStopped = true
+        print("date \(sender.date)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "goToFullImageScreen" else {
+            return
+        }
+        let vc = segue.destination as! FullImageViewController
+        vc.imageUrl = imageHDUrl
+    }
 }
-

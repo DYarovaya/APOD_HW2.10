@@ -8,13 +8,17 @@
 import Foundation
 protocol RequestManagerDelegate {
     func didUpdateData(responseData: ResponseData)
+}
+
+protocol RequestImageManagerDelegate {
     func didUpdateImage(image: Data)
 }
 
 struct RequestManager {
     let apiUrl = "https://api.nasa.gov/planetary/apod"
     let apiKey = "DEMO_KEY"
-    var delegate: RequestManagerDelegate?
+    var requestManagerDelegate: RequestManagerDelegate?
+    var requestImageManagerDelegate: RequestImageManagerDelegate?
     
     
     func fetchRequest(date: String) {
@@ -36,9 +40,8 @@ struct RequestManager {
                 }
                 
                 if let safeData = data {
-                    print("Okey")
                     if let responce = self.parseJSON(data: safeData) {
-                        self.delegate?.didUpdateData(responseData: responce)
+                        self.requestManagerDelegate?.didUpdateData(responseData: responce)
                     }
                 }
                 
@@ -66,7 +69,7 @@ struct RequestManager {
             }
             
             if let data = data {
-                self.delegate?.didUpdateImage(image: data)
+                self.requestImageManagerDelegate?.didUpdateImage(image: data)
             }
         }.resume()
     }
