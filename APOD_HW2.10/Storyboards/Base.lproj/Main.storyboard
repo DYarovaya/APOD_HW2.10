@@ -21,13 +21,17 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWe-2r-h5i">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1009.6666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apod" translatesAutoresizingMaskIntoConstraints="NO" id="aLs-oN-XNu">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aLs-oN-XNu">
                                                 <rect key="frame" x="20" y="80.000000000000014" width="374" height="245.33333333333337"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="46N-eS-fNx" appends="YES" id="7N3-wZ-LTE"/>
+                                                </connections>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Supercell Thunderstorm Over Texas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9F-nU-HaD">
-                                                <rect key="frame" x="20" y="345.33333333333331" width="374" height="61"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9F-nU-HaD">
+                                                <rect key="frame" x="20" y="345.33333333333331" width="374" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Ylb-3G-JAw"/>
                                                 </constraints>
@@ -40,17 +44,27 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="lET-OF-2SV"/>
                                                 </constraints>
+                                                <date key="minimumDate" timeIntervalSinceReferenceDate="-175010400">
+                                                    <!--1995-06-16 10:00:00 +0000-->
+                                                </date>
                                             </datePicker>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmq-rH-p02">
-                                                <rect key="frame" x="20" y="421.33333333333331" width="374" height="568.33333333333348"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmq-rH-p02">
+                                                <rect key="frame" x="20" y="380.33333333333331" width="374" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="nKJ-PD-Fut"/>
                                                 </constraints>
-                                                <mutableString key="text">Is that a cloud or an alien spaceship?  It's an unusual and sometimes dangerous type of thunderstorm cloud called a supercell. Supercells may spawn damaging tornados, hail, downbursts of air, or drenching rain.  Or they may just look impressive. A supercell harbors a mesocyclone -- a rising column of air surrounded by drafts of falling air.  Supercells could occur over many places on Earth but are particularly common in  Is that a cloud or an alien spaceship?  It's an unusual and sometimes dangerous type of thunderstorm cloud called a supercell. Supercells may spawn damaging tornados, hail, downbursts of air, or drenching rain.  Or they may just look impressive. A supercell harbors a mesocyclone -- a rising column of air surrounded by drafts of falling air.  Supercells could occur over many places on Earth but are particularly common in  Is that a cloud or an alien spaceship?  It's an unusual and sometimes dangerous type of thunderstorm cloud called a supercell. Supercells may spawn damaging tornados, hail, downbursts of air, or drenching rain.  Or they may just look impressive. A supercell harbors a mesocyclone -- a rising column of air surrounded by drafts of falling air.  Supercells could occur over many places on Earth but are particularly common in  </mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fbe-rx-UPK">
+                                                <rect key="frame" x="197" y="192" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </activityIndicatorView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="kO2-Cf-PU8">
+                                                <rect key="frame" x="197" y="399" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -90,14 +104,73 @@
                             <constraint firstItem="v9b-6K-eDn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yEb-7J-pda"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="explanationLabel" destination="hmq-rH-p02" id="fLQ-pm-g6C"/>
+                        <outlet property="imageActivityIndicator" destination="fbe-rx-UPK" id="jJ4-ZL-WbS"/>
+                        <outlet property="imageView" destination="aLs-oN-XNu" id="qGh-X2-Hng"/>
+                        <outlet property="labelActivityIndicator" destination="kO2-Cf-PU8" id="On2-Qr-9yc"/>
+                        <outlet property="titleLabel" destination="O9F-nU-HaD" id="2He-yz-Txv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="46N-eS-fNx">
+                    <connections>
+                        <action selector="didTapImageView:" destination="BYZ-38-t0r" id="YQT-P8-FqK"/>
+                        <segue destination="zKb-qL-BAT" kind="presentation" modalPresentationStyle="fullScreen" id="HLX-rG-3CG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
         </scene>
+        <!--Back-->
+        <scene sceneID="KTT-i4-P1Y">
+            <objects>
+                <viewController id="zKb-qL-BAT" customClass="FullImageViewController" customModule="APOD_HW2_10" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n6u-1Z-NBf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QaO-1v-Bso">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3D-Ic-cWt">
+                                <rect key="frame" x="364" y="64" width="30" height="30"/>
+                                <connections>
+                                    <action selector="tappedCloseButton" destination="zKb-qL-BAT" eventType="touchUpInside" id="2QT-Jg-h3c"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SCT-s9-Blv">
+                                <rect key="frame" x="182" y="423" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ng8-0f-nYa"/>
+                                    <constraint firstAttribute="width" constant="50" id="OFN-ma-guc"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uuR-no-b4u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SCT-s9-Blv" firstAttribute="centerX" secondItem="n6u-1Z-NBf" secondAttribute="centerX" id="7C7-Bx-oby"/>
+                            <constraint firstItem="o3D-Ic-cWt" firstAttribute="top" secondItem="uuR-no-b4u" secondAttribute="top" constant="20" id="8fX-dS-uID"/>
+                            <constraint firstItem="SCT-s9-Blv" firstAttribute="centerY" secondItem="n6u-1Z-NBf" secondAttribute="centerY" id="HCq-tb-WSt"/>
+                            <constraint firstItem="uuR-no-b4u" firstAttribute="trailing" secondItem="o3D-Ic-cWt" secondAttribute="trailing" constant="20" id="Ms5-lm-vVd"/>
+                            <constraint firstItem="QaO-1v-Bso" firstAttribute="leading" secondItem="uuR-no-b4u" secondAttribute="leading" id="OKj-2n-sWr"/>
+                            <constraint firstItem="QaO-1v-Bso" firstAttribute="top" secondItem="n6u-1Z-NBf" secondAttribute="top" id="Tuc-Uv-1iE"/>
+                            <constraint firstItem="QaO-1v-Bso" firstAttribute="trailing" secondItem="uuR-no-b4u" secondAttribute="trailing" id="sAo-S0-QJ4"/>
+                            <constraint firstAttribute="bottom" secondItem="QaO-1v-Bso" secondAttribute="bottom" id="sGm-35-DRk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Back" leftItemsSupplementBackButton="YES" id="atz-Sg-c59"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="SCT-s9-Blv" id="0X6-Rp-7X5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dog-R5-aCX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="94"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="apod" width="360" height="168"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
