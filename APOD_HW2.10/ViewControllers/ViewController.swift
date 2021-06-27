@@ -43,10 +43,10 @@ class ViewController: UIViewController {
         imageActivityIndicator.isHidden = true
         
     }
-
-//    @IBAction func didTapImageView(_ sender: UITapGestureRecognizer) {
-//        print("did tap image view", sender)
-//    }
+    
+    //    @IBAction func didTapImageView(_ sender: UITapGestureRecognizer) {
+    //        print("did tap image view", sender)
+    //    }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         requestManager.fetchMainRequest(date: customDateFormatter.formatDate(date: sender.date))
@@ -64,6 +64,17 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: MainRequestManagerDelegate {
+    func didGetError(isError: Bool) {
+        if isError {
+            DispatchQueue.main.async{
+                self.labelActivityIndicator.stopAnimating()
+                let alert = UIAlertController(title: "Opps", message: "Something wrong", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okey", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
+        }
+    }
+    
     func didUpdateData(responseData: ResponseData) {
         DispatchQueue.main.async{
             self.titleLabel.text = responseData.title
@@ -84,10 +95,10 @@ extension ViewController: MainRequestManagerDelegate {
 extension ViewController: ImageRequestManagerDelegate {
     func didUpdateImage(image: Data) {
         if let image = UIImage(data: image) {
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                    self.imageActivityIndicator.stopAnimating()
-                }
+            DispatchQueue.main.async {
+                self.imageView.image = image
+                self.imageActivityIndicator.stopAnimating()
             }
+        }
     }
 }

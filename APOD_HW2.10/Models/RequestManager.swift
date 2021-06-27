@@ -9,6 +9,7 @@ import Foundation
 
 protocol MainRequestManagerDelegate {
     func didUpdateData(responseData: ResponseData)
+    func didGetError(isError: Bool)
 }
 
 protocol ImageRequestManagerDelegate {
@@ -37,9 +38,9 @@ struct RequestManager {
             let task = session.dataTask(with: request) { (data, response, error) in
                 if error != nil {
                     print(error!)
+                    self.mainRequestManagerDelegate?.didGetError(isError: true)
                     return
                 }
-                
                 if let safeData = data {
                     if let response = self.parseJSON(data: safeData) {
                         self.mainRequestManagerDelegate?.didUpdateData(responseData: response)
@@ -58,15 +59,17 @@ struct RequestManager {
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
-                print(error)
+                print("error \(error)")
+                self.mainRequestManagerDelegate?.didGetError(isError: true)
                 return
             }
             
             if let response = response {
-                print(response)
+                print("response\(response)")
             }
             
             if let data = data {
+                print("data \(data)")
                 self.imageRequestManagerDelegate?.didUpdateImage(image: data)
             }
         }.resume()
@@ -77,9 +80,9 @@ struct RequestManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(ResponseData.self, from: data)
-            return ResponseData(title: decodedData.title, explanation: decodedData.explanation, url: decodedData.url, hdurl: decodedData.hdurl)
+            return ResponseData(date: decodedData.date, media_type: decodedData.media_type, service_version: decodedData.service_version, title: decodedData.title, explanation: decodedData.explanation, url: decodedData.url, hdurl: decodedData.hdurl)
         } catch{
-            print(error)
+            self.mainRequestManagerDelegate?.didGetError(isError: true)
             return nil
         }
     }

@@ -64,7 +64,7 @@
                                                 <rect key="frame" x="188.5" y="184" width="37" height="37"/>
                                             </activityIndicatorView>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="kO2-Cf-PU8">
-                                                <rect key="frame" x="188.5" y="513" width="37" height="37"/>
+                                                <rect key="frame" x="188.5" y="390.5" width="37" height="37"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -83,7 +83,7 @@
                                             <constraint firstItem="O9F-nU-HaD" firstAttribute="top" secondItem="aLs-oN-XNu" secondAttribute="bottom" constant="20" id="bqQ-sD-okt"/>
                                             <constraint firstItem="vJZ-Nw-v6j" firstAttribute="top" secondItem="SWe-2r-h5i" secondAttribute="top" constant="20" id="hal-PC-CV1"/>
                                             <constraint firstItem="hmq-rH-p02" firstAttribute="top" secondItem="O9F-nU-HaD" secondAttribute="bottom" constant="15" id="s0J-dI-7rz"/>
-                                            <constraint firstItem="kO2-Cf-PU8" firstAttribute="centerY" secondItem="SWe-2r-h5i" secondAttribute="centerY" multiplier="1.3" id="vLW-38-N9g"/>
+                                            <constraint firstItem="kO2-Cf-PU8" firstAttribute="centerY" secondItem="SWe-2r-h5i" secondAttribute="centerY" id="vLW-38-N9g"/>
                                             <constraint firstItem="aLs-oN-XNu" firstAttribute="top" secondItem="vJZ-Nw-v6j" secondAttribute="bottom" constant="20" id="yOo-nY-mIa"/>
                                             <constraint firstItem="hmq-rH-p02" firstAttribute="leading" secondItem="SWe-2r-h5i" secondAttribute="leading" constant="20" id="zKi-Z9-UIa"/>
                                         </constraints>
