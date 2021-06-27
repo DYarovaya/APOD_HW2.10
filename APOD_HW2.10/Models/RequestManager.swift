@@ -6,32 +6,33 @@
 //
 
 import Foundation
-protocol RequestManagerDelegate {
+
+protocol MainRequestManagerDelegate {
     func didUpdateData(responseData: ResponseData)
 }
 
-protocol RequestImageManagerDelegate {
+protocol ImageRequestManagerDelegate {
     func didUpdateImage(image: Data)
 }
 
 struct RequestManager {
     let apiUrl = "https://api.nasa.gov/planetary/apod"
     let apiKey = "DEMO_KEY"
-    var requestManagerDelegate: RequestManagerDelegate?
-    var requestImageManagerDelegate: RequestImageManagerDelegate?
+    var mainRequestManagerDelegate: MainRequestManagerDelegate?
+    var imageRequestManagerDelegate: ImageRequestManagerDelegate?
     
     
-    func fetchRequest(date: String) {
+    func fetchMainRequest(date: String) {
         let urlString = "\(apiUrl)?date=\(date)&api_key=\(apiKey)"
-        perfomeRequest(urlString: urlString)
+        perfomeMainRequest(urlString: urlString)
     }
     
-    func perfomeRequest(urlString: String) {
+    func perfomeMainRequest(urlString: String) {
         if let url = URL(string: urlString) {
             //Create a URLSession
             let session = URLSession(configuration: .default)
+            let request = URLRequest(url: url)
             
-            var request = URLRequest(url: url)
             //Give the session a task
             let task = session.dataTask(with: request) { (data, response, error) in
                 if error != nil {
@@ -40,21 +41,18 @@ struct RequestManager {
                 }
                 
                 if let safeData = data {
-                    if let responce = self.parseJSON(data: safeData) {
-                        self.requestManagerDelegate?.didUpdateData(responseData: responce)
+                    if let response = self.parseJSON(data: safeData) {
+                        self.mainRequestManagerDelegate?.didUpdateData(responseData: response)
                     }
                 }
                 
             }
             task.resume()
         }
-        
-        //Start the task
-        
     }
     
     func fetchImage(url: String) {
-        guard  let url = URL(string: url) else {
+        guard let url = URL(string: url) else {
             return
         }
         
@@ -69,7 +67,7 @@ struct RequestManager {
             }
             
             if let data = data {
-                self.requestImageManagerDelegate?.didUpdateImage(image: data)
+                self.imageRequestManagerDelegate?.didUpdateImage(image: data)
             }
         }.resume()
     }
@@ -83,7 +81,6 @@ struct RequestManager {
         } catch{
             print(error)
             return nil
-            
         }
     }
 }

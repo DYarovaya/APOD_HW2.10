@@ -13,7 +13,12 @@ struct ResponseData: Decodable {
     let url: String
     let hdurl: String
     
-    init(title: String, explanation: String, url: String, hdurl: String) {
+    init(
+        title: String,
+        explanation: String,
+        url: String,
+        hdurl: String
+    ) {
         self.title = title
         self.explanation = explanation
         self.url = url

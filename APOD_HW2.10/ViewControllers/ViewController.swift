@@ -7,10 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, RequestManagerDelegate, RequestImageManagerDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
+    @IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var labelActivityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
             imageView.isUserInteractionEnabled = true
@@ -21,9 +24,7 @@ class ViewController: UIViewController, RequestManagerDelegate, RequestImageMana
             calendar.maximumDate = date
         }
     }
-    @IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
     
-    @IBOutlet weak var labelActivityIndicator: UIActivityIndicatorView!
     var requestManager = RequestManager()
     let customDateFormatter = CustomDateFormatter()
     
@@ -32,20 +33,37 @@ class ViewController: UIViewController, RequestManagerDelegate, RequestImageMana
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestManager.requestManagerDelegate = self
-        requestManager.requestImageManagerDelegate = self
+        requestManager.mainRequestManagerDelegate = self
+        requestManager.imageRequestManagerDelegate = self
+        //стоило создать переменную для даты, которую я получила в формате String?
+        requestManager.fetchMainRequest(date: customDateFormatter.formatDate(date: date))
         
-        requestManager.fetchRequest(date: customDateFormatter.formatDate(date: date))
         labelActivityIndicator.startAnimating()
         labelActivityIndicator.hidesWhenStopped = true
         imageActivityIndicator.isHidden = true
         
     }
 
-    @IBAction func didTapImageView(_ sender: UITapGestureRecognizer) {
-        print("did tap image view", sender)
+//    @IBAction func didTapImageView(_ sender: UITapGestureRecognizer) {
+//        print("did tap image view", sender)
+//    }
+    
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        requestManager.fetchMainRequest(date: customDateFormatter.formatDate(date: sender.date))
+        labelActivityIndicator.startAnimating()
+        labelActivityIndicator.hidesWhenStopped = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "goToFullImageScreen" else {
+            return
+        }
+        let vc = segue.destination as! FullImageViewController
+        vc.imageUrl = imageHDUrl
+    }
+}
+
+extension ViewController: MainRequestManagerDelegate {
     func didUpdateData(responseData: ResponseData) {
         DispatchQueue.main.async{
             self.titleLabel.text = responseData.title
@@ -61,7 +79,9 @@ class ViewController: UIViewController, RequestManagerDelegate, RequestImageMana
             self.imageActivityIndicator.hidesWhenStopped = true
         }
     }
-    
+}
+
+extension ViewController: ImageRequestManagerDelegate {
     func didUpdateImage(image: Data) {
         if let image = UIImage(data: image) {
                 DispatchQueue.main.async {
@@ -69,19 +89,5 @@ class ViewController: UIViewController, RequestManagerDelegate, RequestImageMana
                     self.imageActivityIndicator.stopAnimating()
                 }
             }
-    }
-    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
-        requestManager.fetchRequest(date: customDateFormatter.formatDate(date: sender.date))
-        labelActivityIndicator.startAnimating()
-        labelActivityIndicator.hidesWhenStopped = true
-        print("date \(sender.date)")
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "goToFullImageScreen" else {
-            return
-        }
-        let vc = segue.destination as! FullImageViewController
-        vc.imageUrl = imageHDUrl
     }
 }

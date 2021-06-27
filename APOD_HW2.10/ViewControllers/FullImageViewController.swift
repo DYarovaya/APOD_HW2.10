@@ -7,21 +7,20 @@
 
 import UIKit
 
-class FullImageViewController: UIViewController,  RequestImageManagerDelegate {
-
-    var requestManager = RequestManager()
+class FullImageViewController: UIViewController,  ImageRequestManagerDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     @IBOutlet weak var imageView: UIImageView!
+    
     var imageUrl: String?
+    var requestManager = RequestManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestManager.requestImageManagerDelegate = self
+        requestManager.imageRequestManagerDelegate = self
         if let imageUrl = imageUrl {
             requestManager.fetchImage(url: imageUrl)
         }
-
+        
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         
@@ -33,13 +32,10 @@ class FullImageViewController: UIViewController,  RequestImageManagerDelegate {
     
     func didUpdateImage(image: Data) {
         if let image = UIImage(data: image) {
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                    self.activityIndicator.stopAnimating()
-                }
+            DispatchQueue.main.async {
+                self.imageView.image = image
+                self.activityIndicator.stopAnimating()
             }
+        }
     }
-
-
-    
 }
